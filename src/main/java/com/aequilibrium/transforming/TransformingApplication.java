@@ -1,9 +1,9 @@
 package com.aequilibrium.transforming;
 
 import com.aequilibrium.transforming.entity.TransformerEntity;
-import com.aequilibrium.transforming.entity.TransformerCriteriaEntity;
+import com.aequilibrium.transforming.entity.TransformerRatingEntity;
 import com.aequilibrium.transforming.entity.TransformerTeamEntity;
-import com.aequilibrium.transforming.repository.TransformerCriteriaRepository;
+import com.aequilibrium.transforming.repository.TransformerRatingRepository;
 import com.aequilibrium.transforming.repository.TransformerRepository;
 import com.aequilibrium.transforming.repository.TransformerTeamRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -22,24 +22,24 @@ public class TransformingApplication {
     }
 
     @Bean
-    public CommandLineRunner demo(TransformerRepository transformerRepository, TransformerTeamRepository transformerTeamRepository, TransformerCriteriaRepository transformerCriteriaRepository) {
+    public CommandLineRunner demo(TransformerRepository transformerRepository, TransformerTeamRepository transformerTeamRepository, TransformerRatingRepository transformerRatingRepository) {
         return (args) -> {
 
             TransformerTeamEntity autobots = TransformerTeamEntity.builder().id(1L).teamName("AUTOBOTS").build();
             transformerTeamRepository.save(autobots);
             transformerTeamRepository.save(TransformerTeamEntity.builder().id(2L).teamName("DECEPTICONS").build());
 
-            TransformerCriteriaEntity transformerCriteriaEntity = TransformerCriteriaEntity.builder()
+            TransformerRatingEntity transformerRatingEntity = TransformerRatingEntity.builder()
                     .strength(4)
                     .endurance(2)
                     .skill(3)
                     .build();
-            transformerCriteriaRepository.save(transformerCriteriaEntity);
+            transformerRatingRepository.save(transformerRatingEntity);
 
             TransformerEntity transformerEntity = TransformerEntity.builder()
                     .name("anand")
                     .transformerTeamEntity(autobots)
-                    .transformerCriteriaEntity(transformerCriteriaEntity)
+                    .transformerRatingEntity(transformerRatingEntity)
                     .build();
 
             transformerRepository.save(transformerEntity);

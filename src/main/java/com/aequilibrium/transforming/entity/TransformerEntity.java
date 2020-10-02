@@ -36,7 +36,7 @@ public class TransformerEntity {
     private TransformerTeamEntity transformerTeamEntity;
 
     @ManyToOne(fetch = LAZY)
-    @JoinColumn(name = "transformer_criteria_id")
-    private TransformerCriteriaEntity transformerCriteriaEntity;
+    @JoinColumn(name = "transformer_rating_id")
+    private TransformerRatingEntity transformerRatingEntity;
 
 }

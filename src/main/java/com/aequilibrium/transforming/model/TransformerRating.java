@@ -1,4 +1,4 @@
-package com.aequilibrium.transforming.entity;
+package com.aequilibrium.transforming.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -6,24 +6,12 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-@Builder
 @Getter
 @Setter
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-@Table(name = "transformer_criteria")
-public class TransformerCriteriaEntity {
-
-    @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
-    private Long id;
+public class TransformerRating {
 
     private Integer strength;
     private Integer intelligence;
@@ -33,5 +21,4 @@ public class TransformerCriteriaEntity {
     private Integer rank;
     private Integer courage;
     private Integer skill;
-
 }

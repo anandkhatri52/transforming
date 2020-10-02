@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class TransformerMapper {
 
-    private final TransformerCriteriaMapper transformerCriteriaMapper;
+    private final TransformerRatingMapper transformerRatingMapper;
 
     public List<TransformerListResponse> map(List<TransformerEntity> transformerEntityList){
         return transformerEntityList.stream().map(this::mapTransformer).collect(Collectors.toList());
@@ -25,7 +25,7 @@ public class TransformerMapper {
                 .id(transformerEntity.getId())
                 .name(transformerEntity.getName())
                 .team(TransformerTeams.valueOf(transformerEntity.getTransformerTeamEntity().getTeamName()))
-                .transformerCriteria(transformerCriteriaMapper.mapToTransformerCriteria(transformerEntity.getTransformerCriteriaEntity()))
+                .transformerRating(transformerRatingMapper.mapToTransformerRating(transformerEntity.getTransformerRatingEntity()))
                 .build();
     }
 }

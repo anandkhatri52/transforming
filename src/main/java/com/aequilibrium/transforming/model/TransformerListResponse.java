@@ -20,5 +20,5 @@ public class TransformerListResponse {
 
     private TransformerTeams team;
 
-    private TransformerCriteria transformerCriteria;
+    private TransformerRating transformerRating;
 }
